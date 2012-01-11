@@ -59,6 +59,7 @@ int main(int argc, char* argv[]) {
 	string data("data.csv");				// filename
 	ifstream infile;					// initilise a stream
 
+
 	char * pEnd;						// for convertions
 	int rc = 0;						// counters
 	int ck = 0;
@@ -69,7 +70,7 @@ int main(int argc, char* argv[]) {
 	infile.close();
 
 	cout << "Number of data points: " << rc << endl;
-
+	
 	boost::numeric::ublas::vector<double> J(rc);		// initialise the data storage
 	boost::numeric::ublas::vector<double> t(rc);
 	
@@ -95,9 +96,9 @@ int main(int argc, char* argv[]) {
 	moduli->eta(1/0.00003);
 	moduli->dpoints(pts);
 	moduli->maxfreq(100);
+	moduli->minfreq(1/t(ck-1));				// the -1 is there to stop it reading passed the end of the file
 	moduli->N(rc);
-	moduli->minfreq(1/t(ck));
-
+	
 	moduli->setJ(J);	
 	moduli->sett(t);
 
@@ -109,7 +110,14 @@ int main(int argc, char* argv[]) {
 	moduli->getgp(gp);					// retrieve results
 	moduli->getgpp(gpp);
 
-	//cout << gp << endl;
-	//cout << gpp << endl;
+	string out_data("data_result.csv");
+	ofstream outfile(out_data.c_str());
+
+	if (!outfile.is_open()) return 1;
+	for(int i = 0; i < pts; i ++){
+		outfile << gp[i] << "," << gpp[i] << endl;
+	}
+	outfile.close();
+	
 
 }

@@ -44,10 +44,16 @@ void Moduli::frequencysweep(){
 	ReSum = 0;
 	ImSum = 0;
 
+	//std::cout << _eta << std::endl;
+	//std::cout << smin << std::endl;
+	//std::cout << _minfreq << std::endl;
+	//std::cout << smax << std::endl;
+
 	for(int i=0; i< _dpoints; ++ i)
 	{
 		w = pow(10,(smin + i*step));	// logspace
 
+		//std::cout << w << std::endl;
 		for(int k=2; k<(_N-1); ++k){	// messed with length here
 			 ReSum += (cos(w*t(k-1))-cos(w*t(k))) * (J(k)-J(k-1))/(t(k)-t(k-1));
       			 ImSum += (-sin(w*t(k-1))+sin(w*t(k))) * (J(k)-J(k-1))/(t(k)-t(k-1));
@@ -59,7 +65,7 @@ void Moduli::frequencysweep(){
 		Gp(i) = w*y/(x*x+y*y); //complex conj multiply
 		Gpp(i) = w*x/(x*x+y*y);
 
-		std::cout << Gp(i) << std::endl;
+		//std::cout << Gp(i) << std::endl;
 	}
 }
 
