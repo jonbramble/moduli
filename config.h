@@ -2,7 +2,7 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "murrayc@openismus.com"
+#define PACKAGE_BUGREPORT "jbramble82@hotmail.com"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "Moduli"

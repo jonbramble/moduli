@@ -437,7 +437,7 @@ $config_headers
 Configuration commands:
 $config_commands
 
-Report bugs to <murrayc@openismus.com>.
+Report bugs to <jbramble82@hotmail.com>.
 Moduli home page: <http://www.leeds.ac.uk>."
 
 ac_cs_config=""
@@ -450,11 +450,11 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/DS/phyjpb/Programming/C/jono-afm'
+ac_pwd='/home/jon/Programming/C/moduli'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
-AWK='gawk'
+AWK='mawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -649,20 +649,20 @@ S["CXXFLAGS"]="-g -O2"
 S["CXX"]="g++"
 S["am__untar"]="${AMTAR} xf -"
 S["am__tar"]="${AMTAR} chof - \"$$tardir\""
-S["AMTAR"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run tar"
+S["AMTAR"]="${SHELL} /home/jon/Programming/C/moduli/missing --run tar"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
-S["AWK"]="gawk"
+S["AWK"]="mawk"
 S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/install-sh"
-S["MAKEINFO"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/DS/phyjpb/Programming/C/jono-afm/missing --run aclocal-1.11"
+S["install_sh"]="${SHELL} /home/jon/Programming/C/moduli/install-sh"
+S["MAKEINFO"]="${SHELL} /home/jon/Programming/C/moduli/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/jon/Programming/C/moduli/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/jon/Programming/C/moduli/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/jon/Programming/C/moduli/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/jon/Programming/C/moduli/missing --run aclocal-1.11"
 S["VERSION"]="0.1"
 S["PACKAGE"]="Moduli"
 S["CYGPATH_W"]="echo"
@@ -701,7 +701,7 @@ S["program_transform_name"]="s,x,x,"
 S["prefix"]="/usr/local"
 S["exec_prefix"]="${prefix}"
 S["PACKAGE_URL"]="http://www.leeds.ac.uk"
-S["PACKAGE_BUGREPORT"]="murrayc@openismus.com"
+S["PACKAGE_BUGREPORT"]="jbramble82@hotmail.com"
 S["PACKAGE_STRING"]="Moduli 0.1"
 S["PACKAGE_VERSION"]="0.1"
 S["PACKAGE_TARNAME"]="Moduli"
@@ -753,7 +753,7 @@ D["PACKAGE_NAME"]=" \"Moduli\""
 D["PACKAGE_TARNAME"]=" \"Moduli\""
 D["PACKAGE_VERSION"]=" \"0.1\""
 D["PACKAGE_STRING"]=" \"Moduli 0.1\""
-D["PACKAGE_BUGREPORT"]=" \"murrayc@openismus.com\""
+D["PACKAGE_BUGREPORT"]=" \"jbramble82@hotmail.com\""
 D["PACKAGE_URL"]=" \"http://www.leeds.ac.uk\""
   for (key in D) D_is_set[key] = 1
   FS = ""
