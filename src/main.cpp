@@ -50,22 +50,41 @@ using namespace boost;
 
 int main(int argc, char* argv[]) {
 
+	int c, index;
+	char* datafile; 
+	char* results;
+	char* appname = argv[0];
+
+	while((c = getopt(argc, argv, "d:r:")) != -1){			//taken from gnu example
+		switch(c){
+		case 'd':
+			datafile = optarg;
+			break;
+		case 'r':
+			results = optarg;
+			break;
+		default:
+			fprintf(stderr, "usage: %s [-d csvfilename] [-r resultscsvfilename] \n", appname);
+			exit(-1);
+		}
+	
+	}
 	
 	char_separator<char> sep(",");				//csv files are separated with ,  can replace for otherfile types
 	typedef tokenizer< char_separator<char> > Tokenizer;	//define the tokenizer, abit OTT here
 	std::vector< string > vec;				//a standard vector of strings
 	string line;						
 
-	string data("data.csv");				// filename
-	ifstream infile;					// initilise a stream
-
-
 	char * pEnd;						// for convertions
 	int rc = 0;						// counters
 	int ck = 0;
 
-	infile.open(data.c_str());				// here we read the file once to get the number of data points
-    	if (!infile.is_open()) return 1;
+	ifstream infile;					// initilise a stream
+	infile.open(datafile);					// here we read the file once to get the number of data points
+    	if (!infile.is_open()) {
+		cout << "File not opened" << endl;
+		return 1;
+	}
 	while (getline(infile,line)){rc++;}
 	infile.close();
 
@@ -74,7 +93,7 @@ int main(int argc, char* argv[]) {
 	boost::numeric::ublas::vector<double> J(rc);		// initialise the data storage
 	boost::numeric::ublas::vector<double> t(rc);
 	
-	infile.open(data.c_str());				// reopen the file
+	infile.open(datafile);				// reopen the file
 
     	while (getline(infile,line) && ck < (rc-1))
     	{
@@ -110,8 +129,7 @@ int main(int argc, char* argv[]) {
 	moduli->getgp(gp);					// retrieve results
 	moduli->getgpp(gpp);
 
-	string out_data("data_result.csv");
-	ofstream outfile(out_data.c_str());
+	ofstream outfile(results);
 
 	if (!outfile.is_open()) return 1;
 	for(int i = 0; i < pts; i ++){
