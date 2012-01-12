@@ -121,21 +121,21 @@ int main(int argc, char* argv[]) {
 	moduli->setJ(J);	
 	moduli->sett(t);
 
-	boost::numeric::ublas::vector<double> gp(pts);		//allocate data arrays for solution (dpoints)
-	boost::numeric::ublas::vector<double> gpp(pts);
-	boost::numeric::ublas::vector<double> ww(pts);
+	boost::numeric::ublas::vector<double> gp_arr(pts);		//allocate data arrays for solution (dpoints)
+	boost::numeric::ublas::vector<double> gpp_arr(pts);
+	boost::numeric::ublas::vector<double> ww_arr(pts);
 
 	moduli->run();						// run calculations
 
-	moduli->getgp(gp);					// retrieve results
-	moduli->getgpp(gpp);
-	moduli->getgpp(ww);
+	moduli->getgp(gp_arr);					// retrieve results
+	moduli->getgpp(gpp_arr);
+	moduli->getww(ww_arr);
 
 	ofstream outfile(results);
 
 	if (!outfile.is_open()) return 1;
 	for(int i = 0; i < pts; i ++){
-		outfile << ww[i] << "," << gp[i] << "," << gpp[i] << endl;
+		outfile << ww_arr[i] << "," << gp_arr[i] << "," << gpp_arr[i] << endl;
 	}
 	outfile.close();
 	

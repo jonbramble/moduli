@@ -81,7 +81,7 @@ private:
 	double _J0, _eta, _maxfreq, _minfreq;
 	double smin, smax, step, w, ReSum, ImSum, x, y; 
 
-	boost::numeric::ublas::vector<double> J, t, _ww;
+	boost::numeric::ublas::vector<double> J, t, ww;
 	boost::numeric::ublas::vector<double> Gp, Gpp;
 };
 
