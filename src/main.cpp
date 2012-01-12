@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
 
 	int pts = 3000;
 		
-	moduli->J0(0.0);					// set params
+	moduli->J0(0.1);					// set params
 	moduli->eta(1/0.00003);
 	moduli->dpoints(pts);
 	moduli->maxfreq(100);
@@ -123,17 +123,19 @@ int main(int argc, char* argv[]) {
 
 	boost::numeric::ublas::vector<double> gp(pts);		//allocate data arrays for solution (dpoints)
 	boost::numeric::ublas::vector<double> gpp(pts);
+	boost::numeric::ublas::vector<double> ww(pts);
 
 	moduli->run();						// run calculations
 
 	moduli->getgp(gp);					// retrieve results
 	moduli->getgpp(gpp);
+	moduli->getgpp(ww);
 
 	ofstream outfile(results);
 
 	if (!outfile.is_open()) return 1;
 	for(int i = 0; i < pts; i ++){
-		outfile << gp[i] << "," << gpp[i] << endl;
+		outfile << ww[i] << "," << gp[i] << "," << gpp[i] << endl;
 	}
 	outfile.close();
 	

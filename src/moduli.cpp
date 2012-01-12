@@ -45,13 +45,14 @@ void Moduli::frequencysweep(){
 	ImSum = 0;
 
 	//std::cout << _eta << std::endl;
-	//std::cout << smin << std::endl;
-	//std::cout << _minfreq << std::endl;
-	//std::cout << smax << std::endl;
+	std::cout << smin << std::endl;
+	std::cout << _minfreq << std::endl;
+	std::cout << smax << std::endl;
 
 	for(int i=0; i< _dpoints; ++ i)
 	{
 		w = pow(10,(smin + i*step));	// logspace
+		_ww(i) = w;
 
 		//std::cout << w << std::endl;
 		for(int k=2; k<(_N-1); ++k){	// messed with length here
@@ -74,6 +75,7 @@ void Moduli::run(){
 
 	Gp = boost::numeric::ublas::vector<double>(_dpoints);
 	Gpp = boost::numeric::ublas::vector<double>(_dpoints);
+	_ww = boost::numeric::ublas::vector<double>(_dpoints);
 
 	frequencysweep();
 	std::cout << "...Complete" << std::endl;
@@ -93,6 +95,10 @@ void Moduli::setJ(boost::numeric::ublas::vector<double>& _J){
 
 void Moduli::sett(boost::numeric::ublas::vector<double>& _t){
 	t=_t;
+}
+
+void Moduli::getww(boost::numeric::ublas::vector<double>& ww){
+	ww = _ww;	
 }
 
 
