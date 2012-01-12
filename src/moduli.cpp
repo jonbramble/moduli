@@ -60,7 +60,7 @@ void Moduli::frequencysweep(){
 		}
 
 		x = ((1.-cos(w*t(1)))*(J(1)-_J0)/t(1)) + (cos(w*t(_N-1))/_eta) + ReSum;   // check indexes of J
-    		y = (w*_J0) + (sin(w*t(1))*(J(1)-_J0)/t(1)) - (sin(w*t(_N-1))/_eta) + ImSum;  // check first sign of sin
+    		y = (w*_J0) - (sin(w*t(1))*(J(1)-_J0)/t(1)) - (sin(w*t(_N-1))/_eta) + ImSum;  // check first sign of sin
 		
 		Gp(i) = w*y/(x*x+y*y); //complex conj multiply
 		Gpp(i) = w*x/(x*x+y*y);
