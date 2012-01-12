@@ -39,7 +39,8 @@ DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure AUTHORS COPYING ChangeLog INSTALL NEWS \
 	depcomp install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/ax_boost_base.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
@@ -88,6 +89,8 @@ AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
 AWK = @AWK@
+BOOST_CPPFLAGS = @BOOST_CPPFLAGS@
+BOOST_LDFLAGS = @BOOST_LDFLAGS@
 CPPFLAGS = @CPPFLAGS@
 CXX = @CXX@
 CXXDEPMODE = @CXXDEPMODE@
@@ -166,7 +169,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = subdir-objects
-ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 MODULI_SOURCES = include/moduli.h src/moduli.cpp src/main.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
