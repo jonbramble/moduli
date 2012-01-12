@@ -69,6 +69,8 @@ public:
 
 	void getgp(boost::numeric::ublas::vector<double>&);
 	void getgpp(boost::numeric::ublas::vector<double>&);
+	
+	void getww(boost::numeric::ublas::vector<double>&);
 
 	void setJ(boost::numeric::ublas::vector<double>&);
 	void sett(boost::numeric::ublas::vector<double>&);
@@ -79,7 +81,7 @@ private:
 	double _J0, _eta, _maxfreq, _minfreq;
 	double smin, smax, step, w, ReSum, ImSum, x, y; 
 
-	boost::numeric::ublas::vector<double> J, t;
+	boost::numeric::ublas::vector<double> J, t, _ww;
 	boost::numeric::ublas::vector<double> Gp, Gpp;
 };
 
